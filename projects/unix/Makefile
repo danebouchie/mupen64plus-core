@@ -486,6 +486,12 @@ SOURCE = \
     $(SRCDIR)/device/si/si_controller.c \
     $(SRCDIR)/device/si/transferpak.c \
     $(SRCDIR)/device/vi/vi_controller.c \
+	$(SRCDIR)/fuzzer/fuzzer.c \
+	$(SRCDIR)/fuzzer/fuzzer_inputs.c \
+	$(SRCDIR)/fuzzer/fuzzer_lualib.c \
+	$(SRCDIR)/fuzzer/fuzzer_m64input.c \	
+	$(SRCDIR)/fuzzer/fuzzer_memory.c \	
+	$(SRCDIR)/fuzzer/luaext.c \
     $(SRCDIR)/main/main.c \
     $(SRCDIR)/main/util.c \
     $(SRCDIR)/main/cheat.c \

@@ -47,6 +47,7 @@
 #include "osd/screenshot.h"
 #include "plugin/plugin.h"
 #include "vidext.h"
+#include "fuzzer/fuzzer.h"
 
 /* some local state variables */
 static int l_CoreInit = 0;
@@ -54,7 +55,7 @@ static int l_ROMOpen = 0;
 
 
 /* functions exported outside of libmupen64plus to front-end application */
-EXPORT m64p_error CALL CoreStartup(int APIVersion, const char *ConfigPath, const char *DataPath, void *Context,
+EXPORT m64p_error CALL CoreStartup(int APIVersion, const char *ConfigPath, const char *DataPath, void *Context, const char * fuzzerLuaFilename,
                                    void (*DebugCallback)(void *, int, const char *), void *Context2,
                                    void (*StateCallback)(void *, m64p_core_param, int))
 {
@@ -62,6 +63,9 @@ EXPORT m64p_error CALL CoreStartup(int APIVersion, const char *ConfigPath, const
 
     if (l_CoreInit)
         return M64ERR_ALREADY_INIT;
+
+	/* start lua (for fuzzer)*/
+	fuzzer_main_run(fuzzerLuaFilename);
 
     /* very first thing is to set the callback functions for debug info and state changing*/
     SetDebugCallback(DebugCallback, Context);
@@ -125,6 +129,9 @@ EXPORT m64p_error CALL CoreShutdown(void)
 
     /* tell SDL to shut down */
     SDL_Quit();
+
+	/* stop fuzzer */
+	fuzzer_main_stop();
 
     /* deallocate RDRAM */
     free(g_rdram);

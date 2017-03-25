@@ -73,6 +73,9 @@
     <Filter Include="device\pifbootrom">
       <UniqueIdentifier>{0628d2cb-f4d7-4b1e-ad47-00501bd18048}</UniqueIdentifier>
     </Filter>
+    <Filter Include="fuzzer">
+      <UniqueIdentifier>{999ed0e0-3ef5-44ff-8ad1-55a530c2dfe3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\device\ai\ai_controller.c">
@@ -417,6 +420,27 @@
     <ClCompile Include="..\..\src\plugin\get_time_using_time_plus_delta.c">
       <Filter>plugin</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\fuzzer\fuzzer_lualib.c">
+      <Filter>fuzzer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\fuzzer\fuzzer.c">
+      <Filter>fuzzer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\fuzzer\fuzzer_inputs.c">
+      <Filter>fuzzer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\fuzzer\fuzzer_memory.c">
+      <Filter>fuzzer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\fuzzer\fuzzer_m64input.c">
+      <Filter>fuzzer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\fuzzer\luaext.c">
+      <Filter>fuzzer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\device\gb\gb_cart.c" />
+    <ClCompile Include="..\..\src\device\gb\mbc3_rtc.c" />
+    <ClCompile Include="..\..\src\device\si\transferpak.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\device\ai\ai_controller.h">
@@ -743,6 +767,27 @@
     <ClInclude Include="..\..\src\plugin\get_time_using_time_plus_delta.h">
       <Filter>plugin</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\fuzzer\fuzzer_lualib.h">
+      <Filter>fuzzer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\fuzzer\fuzzer.h">
+      <Filter>fuzzer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\fuzzer\fuzzer_inputs.h">
+      <Filter>fuzzer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\fuzzer\fuzzer_memory.h">
+      <Filter>fuzzer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\fuzzer\fuzzer_m64input.h">
+      <Filter>fuzzer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\fuzzer\luaext.h">
+      <Filter>fuzzer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\device\gb\gb_cart.h" />
+    <ClInclude Include="..\..\src\device\gb\mbc3_rtc.h" />
+    <ClInclude Include="..\..\src\device\si\transferpak.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\device\r4300\interpreter.def">

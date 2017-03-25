@@ -28,6 +28,7 @@
 #include "device/r4300/r4300_core.h"
 #include "main/main.h"
 #include "plugin/plugin.h"
+#include "fuzzer/fuzzer.h"
 
 /* XXX: timing hacks */
 enum { NTSC_VERTICAL_RESOLUTION = 525 };
@@ -141,6 +142,7 @@ void vi_vertical_interrupt_event(struct vi_controller* vi)
     gfx.updateScreen();
 
     /* allow main module to do things on VI event */
+	fuzzer_vi();
     new_vi();
 
     /* toggle vi field if in interlaced mode */
@@ -153,7 +155,7 @@ void vi_vertical_interrupt_event(struct vi_controller* vi)
 
     vi->next_vi += vi->delay;
 
-    add_interrupt_event_count(&vi->r4300->cp0, VI_INT, vi->next_vi);
+	add_interrupt_event_count(&vi->r4300->cp0, VI_INT, vi->next_vi);
 
     /* trigger interrupt */
     raise_rcp_interrupt(vi->r4300, MI_INTR_VI);

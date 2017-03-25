@@ -25,6 +25,7 @@
 #include "api/m64p_types.h"
 #include "dummy_input.h"
 #include "plugin.h"
+#include "fuzzer/fuzzer.h"
 
 m64p_error dummyinput_PluginGetVersion(m64p_plugin_type *PluginType, int *PluginVersion,
                                        int *APIVersion, const char **PluginNamePtr, int *Capabilities)
@@ -55,6 +56,7 @@ void dummyinput_InitiateControllers (CONTROL_INFO ControlInfo)
 void dummyinput_GetKeys(int Control, BUTTONS * Keys )
 {
     Keys->Value = 0x0000;
+	fuzzer_GetKeys(Keys);
 }
 
 void dummyinput_ControllerCommand(int Control, unsigned char *Command)
